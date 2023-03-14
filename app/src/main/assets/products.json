@@ -1,0 +1,32 @@
+[
+  {
+    "productId": "001",
+    "name": "Coffee Chair",
+    "description": "THE NAME SAYS IT ALL, THE RIGHT SIZE SLIGHTLY SNUGS THE BODY LEAVING ENOUGH ROOM FOR COMFORT IN THE SLEEVES AND WAIST.",
+    "rating": 4.3,
+    "category": "chair",
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0096/4594/9013/files/Chairs_Cafe-13.jpg",
+    "price": 13000,
+    "quantityRemaining": 7
+  },
+  {
+    "productId": "002",
+    "name": "Nordic dinning chair",
+    "description": "How can you resist the sunny style of this Nordic Dining ICE Lemon green Scandinavian chair with solid oak? The lemon green colour of this char's seat is subtly accentuated by elegant sloping oak feet, and will add a cheerful note to your interior design. As elegant as it is comfortable, this scandinavian-style chair features a seat with well-padded, plush upholstery. Pair this chair with a designer table.",
+    "rating": 4.2,
+    "category": "chair",
+    "imageUrl": "http://cdn.shopify.com/s/files/1/1185/9434/products/nordic-dining-chair-with-wood-legs-29995350687936.png",
+    "price": 17500,
+    "quantityRemaining": 2
+  },
+  {
+    "productId": "003",
+    "name": "Elm Coffee table",
+    "description": "Our Elm Coffee Table is handmade using traditional Mortice joints, and constructed from vintage elm.These tables have the appearance of well kept original peasant pieces, however, are newly made with a lovely patina, and will provide years of use.Each coffee table is made from reclaimed elm and has it's own unique characteristics. Coffee table pictured is indicative only",
+    "rating": 4.5,
+    "category": "table",
+    "imageUrl": "http://cdn.shopify.com/s/files/1/2805/1346/products/Pavia-Coffee-Table_grande.png",
+    "price": 24200,
+    "quantityRemaining": 12
+  }
+]
