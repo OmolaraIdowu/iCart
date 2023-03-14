@@ -28,5 +28,15 @@
     "imageUrl": "http://cdn.shopify.com/s/files/1/2805/1346/products/Pavia-Coffee-Table_grande.png",
     "price": 24200,
     "quantityRemaining": 12
+  },
+  {
+    "productId": "004",
+    "name": "Frankford Oakwood Folding Beach Table",
+    "description": "The Frankford Oakwood Folding Beach Table is the perfect companion for the Oakwood Beach Chair/Lounger, or a great portable side table on its own.   Frame is weatherproof and designed with strength and durability in mind, using all North American hardwood and stainless steel fasteners.",
+    "rating": 3.9,
+    "category": "table",
+    "imageUrl": "https://www.resortchairs.com/wp-content/uploads/2019/06/95154-oakwood-table.jpg",
+    "price": 9000,
+    "quantityRemaining": 1
   }
 ]
