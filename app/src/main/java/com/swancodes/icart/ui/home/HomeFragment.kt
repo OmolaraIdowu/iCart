@@ -20,28 +20,4 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        *//*binding.allItemsButton.setOnClickListener {
-            binding.allItemsTextView.setTypeface(null, if (it.isSelected) Typeface.NORMAL else Typeface.BOLD)
-            it.isSelected = !it.isSelected
-        }
-
-        binding.chairButton.setOnClickListener {
-            binding.chairTextView.setTypeface(null, if (it.isSelected) Typeface.NORMAL else Typeface.BOLD)
-            it.isSelected = !it.isSelected
-        }
-
-        binding.tableButton.setOnClickListener {
-            binding.tableTextView.setTypeface(null, if (it.isSelected) Typeface.NORMAL else Typeface.BOLD)
-            it.isSelected = !it.isSelected
-        }
-
-        binding.bedButton.setOnClickListener {
-            binding.bedTextView.setTypeface(null, if (it.isSelected) Typeface.NORMAL else Typeface.BOLD)
-            it.isSelected = !it.isSelected
-        }*//*
-    }*/
 }
