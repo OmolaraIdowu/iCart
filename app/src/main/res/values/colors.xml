@@ -13,8 +13,8 @@
     <color name="green">#27AE60</color>
     <color name="red">#EB5757</color>
     <color name="grey">#909090</color>
-    <color name="main">#242424</color>
+    <color name="black_200">#242424</color>
     <color name="secondary">#E0E0E0</color>
-    <color name="disable">#B3B3B3</color>
+    <color name="grey_500">#B3B3B3</color>
     <color name="background">#F5F5F5</color>
 </resources>

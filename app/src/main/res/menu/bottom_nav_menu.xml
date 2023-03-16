@@ -3,17 +3,14 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_home"
-        android:title="@string/home"
-        android:fontFamily="@font/poppins" />
+        android:title="@string/home" />
     <item
         android:id="@+id/favorite"
         android:icon="@drawable/ic_favorite"
-        android:title="@string/favorite"
-        android:fontFamily="@font/poppins" />
+        android:title="@string/favorite" />
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/outline_person_24"
-        android:title="@string/profile"
-        android:fontFamily="@font/poppins" />
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile" />
 
 </menu>

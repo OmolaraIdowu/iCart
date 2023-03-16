@@ -5,4 +5,16 @@
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
     <string name="profile">Profile</string>
+    <string name="make_home_beautiful"><font family="@font/poppins>">MAKE HOME</font> <b><big>BEAUTIFUL</big></b></string>
+    <string name="beautiful">BEAUTIFUL</string>
+    <string name="cart">Cart</string>
+    <string name="all">All</string>
+    <string name="chair">Chair</string>
+    <string name="table">Table</string>
+    <string name="bed">Bed</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="bag">Bag</string>
 </resources>
