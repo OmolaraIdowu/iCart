@@ -17,6 +17,9 @@ class MainViewModel(private val dao: ProductDao) : ViewModel() {
     private val _products: MutableLiveData<List<Product>> = MutableLiveData()
     val products: LiveData<List<Product>> get() = _products
 
+    private val _navigationItem = MutableLiveData<String>()
+    val navigationItem: LiveData<String> get() = _navigationItem
+
     init {
         getAllProducts()
     }
@@ -27,6 +30,9 @@ class MainViewModel(private val dao: ProductDao) : ViewModel() {
                 _products.value = it
             }
         }
+    }
+    fun setNavigationItem(item: String) {
+        _navigationItem.value = item
     }
 }
 

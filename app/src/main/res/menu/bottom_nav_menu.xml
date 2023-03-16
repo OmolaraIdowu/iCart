@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"
+        android:fontFamily="@font/poppins" />
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/favorite"
+        android:fontFamily="@font/poppins" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/outline_person_24"
+        android:title="@string/profile"
+        android:fontFamily="@font/poppins" />
+
+</menu>
