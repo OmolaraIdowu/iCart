@@ -2,54 +2,56 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="0dp"
+        android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="10dp"
         android:iconifiedByDefault="true"
         android:queryHint="Search Items"
         android:searchIcon="@drawable/ic_search"
+        app:layout_constraintEnd_toStartOf="@+id/headerTitle"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/headerTitle"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginEnd="104dp"
+        android:lineSpacingExtra="-2dp"
         android:text="@string/make_home_beautiful"
         android:textAlignment="center"
         android:textSize="14sp"
-        android:lineSpacingExtra="-2dp"
-        app:layout_constraintEnd_toStartOf="@id/shoppingCart"
-        app:layout_constraintStart_toEndOf="@id/searchView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/searchView"
+        app:layout_constraintEnd_toStartOf="@id/cartButton"
+        app:layout_constraintTop_toTopOf="@id/searchView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
-        android:id="@+id/shoppingCart"
+        android:id="@+id/cartButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="10dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/cart"
-        android:scaleType="centerInside"
         android:src="@drawable/ic_shopping_cart"
+        app:layout_constraintBottom_toBottomOf="@id/headerTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/headerTitle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/allItemsLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toTopOf="@id/itemRecyclerView"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/homeRecyclerView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchView">
 
@@ -57,12 +59,12 @@
             android:id="@+id/allItemsButton"
             android:layout_width="46dp"
             android:layout_height="46dp"
-            android:background="@drawable/button_background_2"
+            android:background="@drawable/btn_bg_black"
+            android:contentDescription="@string/all"
             android:src="@drawable/ic_star"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/all" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/allItemsTextView"
@@ -92,12 +94,12 @@
             android:id="@+id/chairButton"
             android:layout_width="46dp"
             android:layout_height="46dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/btn_bg_grey"
+            android:contentDescription="@string/chair"
             android:src="@drawable/ic_chair"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/chair" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/chairTextView"
@@ -127,12 +129,12 @@
             android:id="@+id/tableButton"
             android:layout_width="46dp"
             android:layout_height="46dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/btn_bg_grey"
+            android:contentDescription="@string/table"
             android:src="@drawable/ic_table"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/table" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tableTextView"
@@ -161,12 +163,12 @@
             android:id="@+id/bedButton"
             android:layout_width="46dp"
             android:layout_height="46dp"
+            android:background="@drawable/btn_bg_grey"
+            android:contentDescription="@string/bed"
             android:src="@drawable/ic_bed"
-            android:background="@drawable/button_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/bed" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/bedTextView"
@@ -183,7 +185,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemRecyclerView"
+        android:id="@+id/homeRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -195,6 +197,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chairLayout"
         app:spanCount="2"
-        tools:listitem="@layout/list_item" />
+        tools:listitem="@layout/home_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
