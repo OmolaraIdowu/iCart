@@ -143,6 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardElevation="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/materialCardView3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/materialCardView">
@@ -197,6 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardElevation="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/materialCardView4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/materialCardView2">
@@ -251,6 +253,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardElevation="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/materialCardView5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/materialCardView3">
