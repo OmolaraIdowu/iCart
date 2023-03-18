@@ -1,19 +1,20 @@
 package com.swancodes.icart.ui.cart
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.swancodes.icart.R
+import com.swancodes.icart.databinding.FragmentCartBinding
+import com.swancodes.icart.utilities.viewBinding
 
-class CartFragment : Fragment() {
+class CartFragment : Fragment(R.layout.fragment_cart) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false)
+    private val binding: FragmentCartBinding by viewBinding(FragmentCartBinding::bind)
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
     }
 }

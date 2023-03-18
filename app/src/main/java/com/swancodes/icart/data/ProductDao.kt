@@ -14,4 +14,7 @@ abstract class ProductDao {
 
     @Query("SELECT * FROM productTable")
     abstract fun getAllProducts(): Flow<List<Product>>
+
+    @Query("SELECT DISTINCT category FROM productTable")
+    abstract fun getAllCategories(): Flow<List<String>>
 }

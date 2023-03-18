@@ -12,5 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="customChipStyle">@style/ChipStyle</item>
     </style>
-    </resources>
+
+    <style name="ChipStyle" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipCornerRadius">4dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

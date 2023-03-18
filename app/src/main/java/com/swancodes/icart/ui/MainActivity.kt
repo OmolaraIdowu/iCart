@@ -9,15 +9,19 @@ import androidx.navigation.ui.setupWithNavController
 import com.swancodes.icart.R
 import com.swancodes.icart.databinding.ActivityMainBinding
 import com.swancodes.icart.utilities.InjectorUtils
+import com.swancodes.icart.utilities.viewBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val mainViewModel: MainViewModel by viewModels { InjectorUtils.provideMainViewModelFactory(this) }
-    private lateinit var binding: ActivityMainBinding
+    private val mainViewModel: MainViewModel by viewModels {
+        InjectorUtils.provideMainViewModelFactory(
+            this
+        )
+    }
+    private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val navHostFragment =
