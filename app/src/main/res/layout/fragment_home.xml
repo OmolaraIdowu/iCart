@@ -8,195 +8,177 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:iconifiedByDefault="true"
-        android:queryHint="Search Items"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:searchIcon="@drawable/ic_search"
-        app:layout_constraintEnd_toStartOf="@+id/headerTitle"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:iconifiedByDefault="true"
+        app:layout_constraintBottom_toTopOf="@id/topGuideline"
+        app:layout_constraintStart_toStartOf="@+id/startGuideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/headerTitle"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="104dp"
+        android:gravity="center"
         android:lineSpacingExtra="-2dp"
         android:text="@string/make_home_beautiful"
         android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/searchView"
-        app:layout_constraintEnd_toStartOf="@id/cartButton"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toEndOf="@+id/searchView"
         app:layout_constraintTop_toTopOf="@id/searchView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/cartButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/cart"
-        android:src="@drawable/ic_shopping_cart"
-        app:layout_constraintBottom_toBottomOf="@id/headerTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/headerTitle" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/allItemsLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@id/homeRecyclerView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchView">
-
-        <ImageButton
-            android:id="@+id/allItemsButton"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
-            android:background="@drawable/btn_bg_black"
-            android:contentDescription="@string/all"
-            android:src="@drawable/ic_star"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/allItemsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="@string/all"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/allItemsButton" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/chairLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/allItemsLayout"
-        app:layout_constraintEnd_toStartOf="@id/tableLayout"
+        android:id="@+id/allItemsButton"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn_bg_black"
+        android:contentDescription="@string/all"
+        android:src="@drawable/ic_star"
+        app:layout_constraintEnd_toStartOf="@id/chairButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/allItemsLayout"
-        app:layout_constraintTop_toTopOf="@id/allItemsLayout">
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@id/topGuideline"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-        <ImageButton
-            android:id="@+id/chairButton"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
-            android:background="@drawable/btn_bg_grey"
-            android:contentDescription="@string/chair"
-            android:src="@drawable/ic_chair"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/chairTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="@string/chair"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chairButton" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/tableLayout"
+    <TextView
+        android:id="@+id/allItemsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/chairLayout"
-        app:layout_constraintEnd_toStartOf="@id/bedLayout"
+        android:fontFamily="@font/poppins"
+        android:text="@string/all"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/chairTextView"
+        app:layout_constraintEnd_toEndOf="@id/allItemsButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/chairLayout"
-        app:layout_constraintTop_toTopOf="@id/chairLayout">
+        app:layout_constraintStart_toStartOf="@id/allItemsButton"
+        app:layout_constraintTop_toTopOf="@id/chairTextView" />
 
-        <ImageButton
-            android:id="@+id/tableButton"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
-            android:background="@drawable/btn_bg_grey"
-            android:contentDescription="@string/table"
-            android:src="@drawable/ic_table"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tableTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="@string/table"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tableButton" />
+    <ImageButton
+        android:id="@+id/chairButton"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn_bg_grey"
+        android:contentDescription="@string/chair"
+        android:src="@drawable/ic_chair"
+        app:layout_constraintBottom_toBottomOf="@id/allItemsButton"
+        app:layout_constraintEnd_toStartOf="@id/tableButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/allItemsButton"
+        app:layout_constraintTop_toTopOf="@id/allItemsButton"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bedLayout"
+    <TextView
+        android:id="@+id/chairTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/tableLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tableLayout">
+        android:fontFamily="@font/poppins"
+        android:text="@string/chair"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/tableTextView"
+        app:layout_constraintEnd_toEndOf="@id/chairButton"
+        app:layout_constraintStart_toStartOf="@id/chairButton"
+        app:layout_constraintTop_toTopOf="@id/tableTextView" />
 
-        <ImageButton
-            android:id="@+id/bedButton"
-            android:layout_width="46dp"
-            android:layout_height="46dp"
-            android:background="@drawable/btn_bg_grey"
-            android:contentDescription="@string/bed"
-            android:src="@drawable/ic_bed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/tableButton"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn_bg_grey"
+        android:contentDescription="@string/table"
+        android:src="@drawable/ic_table"
+        app:layout_constraintBottom_toBottomOf="@id/chairButton"
+        app:layout_constraintEnd_toStartOf="@id/bedButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/chairButton"
+        app:layout_constraintTop_toTopOf="@id/chairButton"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-        <TextView
-            android:id="@+id/bedTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="@string/bed"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bedButton" />
+    <TextView
+        android:id="@+id/tableTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/table"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/bedTextView"
+        app:layout_constraintEnd_toEndOf="@id/tableButton"
+        app:layout_constraintStart_toStartOf="@id/tableButton"
+        app:layout_constraintTop_toTopOf="@id/bedTextView" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/bedButton"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/btn_bg_grey"
+        android:contentDescription="@string/bed"
+        android:src="@drawable/ic_bed"
+        app:layout_constraintBottom_toBottomOf="@id/tableButton"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/tableButton"
+        app:layout_constraintTop_toTopOf="@id/tableButton"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/bedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/bed"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/bedButton"
+        app:layout_constraintStart_toStartOf="@id/bedButton"
+        app:layout_constraintTop_toBottomOf="@id/bedButton" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:fadeScrollbars="true"
         android:scrollbarStyle="insideInset"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chairLayout"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@id/barrier"
         app:spanCount="2"
         tools:listitem="@layout/home_item" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="50dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="bedTextView,chairButton,chairTextView,tableTextView,bedButton,allItemsTextView,allItemsButton,tableButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
