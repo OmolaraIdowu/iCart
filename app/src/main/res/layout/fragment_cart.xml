@@ -10,14 +10,143 @@
         android:id="@+id/cartTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="@string/cart"
+        android:text="@string/my_cart"
         android:textColor="@color/black_200"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/cartRV"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartRV"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/barrier"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/cartTextView"
+        tools:listitem="@layout/cart_item"/>
+
+    <TextView
+        android:id="@+id/emptyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black_200"
+        android:text="@string/no_items_in_the_cart"
+        app:layout_constraintBottom_toTopOf="@id/checkOutButton"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="promoEditText" />
+
+    <EditText
+        android:id="@+id/promoEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints="none"
+        android:background="@drawable/btn_bg_grey"
+        android:elevation="2dp"
+        android:fontFamily="@font/poppins"
+        android:hint="@string/enter_promo_code"
+        android:inputType="textNoSuggestions"
+        android:maxLines="1"
+        android:maxEms="20"
+        android:padding="8dp"
+        android:textColor="@color/black_200"
+        android:textIsSelectable="true"
+        app:layout_constraintBottom_toTopOf="@id/totalTextView"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+    <ImageButton
+        android:id="@+id/goButton"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_bg_black"
+        android:elevation="2dp"
+        android:src="@drawable/ic_next_white"
+        app:layout_constraintBottom_toBottomOf="@id/promoEditText"
+        app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/promoEditText"
+        app:layout_constraintTop_toTopOf="@id/promoEditText"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/totalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="6dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/total"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/checkOutButton"
+        app:layout_constraintEnd_toStartOf="@id/resultTextView"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/promoEditText" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="6dp"
+        android:fontFamily="@font/poppins_bold"
+        tools:text="$ 95.00"
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        android:gravity="end"
+        app:layout_constraintBottom_toTopOf="@id/checkOutButton"
+        app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/totalTextView"
+        app:layout_constraintTop_toBottomOf="@id/promoEditText" />
+
+    <Button
+        android:id="@+id/checkOutButton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/black_200"
+        android:text="@string/check_out"
+        android:textAllCaps="false"
+        app:cornerRadius="8dp"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/totalTextView" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
