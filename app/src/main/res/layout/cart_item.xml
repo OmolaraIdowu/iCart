@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cartItemLayout"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintBottom_toTopOf="@id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/cartItemImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/cartItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/poppins"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/cartItemPrice"
+        app:layout_constraintStart_toEndOf="@id/cartItemLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Minimal Stand" />
+
+    <TextView
+        android:id="@+id/cartItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/cartItemTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/cartItemLayout"
+        app:layout_constraintTop_toBottomOf="@id/cartItemTitle"
+        tools:text="$25.00" />
+
+    <ImageButton
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cancel" />
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/cartItemLayout"
+        app:layout_constraintTop_toBottomOf="@id/cartItemLayout" />
+
+    <ImageButton
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/btn_bg_grey_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/quantityTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/cartItemLayout"
+        app:layout_constraintTop_toBottomOf="@id/cartItemPrice"
+        app:layout_constraintVertical_bias="0.73"
+        app:srcCompat="@drawable/ic_add" />
+
+    <TextView
+        android:id="@+id/quantityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/_01"
+        android:textColor="@color/black_200"
+        app:layout_constraintBottom_toBottomOf="@id/addButton"
+        app:layout_constraintEnd_toStartOf="@id/minusButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/addButton"
+        app:layout_constraintTop_toTopOf="@id/addButton" />
+
+    <ImageButton
+        android:id="@+id/minusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg_grey_2"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/quantityTextView"
+        app:layout_constraintStart_toEndOf="@id/quantityTextView"
+        app:layout_constraintTop_toTopOf="@id/quantityTextView"
+        app:srcCompat="@drawable/ic_subtract" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
