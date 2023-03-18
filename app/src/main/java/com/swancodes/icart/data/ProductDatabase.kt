@@ -11,7 +11,7 @@ import androidx.work.WorkManager
 import com.swancodes.icart.utilities.DATABASE_NAME
 import com.swancodes.icart.worker.ProductDatabaseWorker
 
-@Database(entities = [Product::class], version = 1, exportSchema = false)
+@Database(entities = [Product::class], version = 1, exportSchema = true)
 abstract class ProductDatabase : RoomDatabase() {
 
     abstract fun productDao(): ProductDao
