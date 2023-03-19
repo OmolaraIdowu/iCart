@@ -61,7 +61,7 @@
         android:hint="@string/enter_promo_code"
         android:inputType="textNoSuggestions"
         android:maxLines="1"
-        android:maxEms="20"
+        android:maxLength="20"
         android:padding="8dp"
         android:textColor="@color/black_200"
         android:textIsSelectable="true"

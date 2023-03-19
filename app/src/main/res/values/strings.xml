@@ -21,4 +21,7 @@
     <string name="no_items_in_the_cart">You have not added any item to cart</string>
     <string name="my_cart">My Cart</string>
     <string name="_01">01</string>
+    <string name="currency">\u20A6 %d</string>
+    <string name="quantity_remaining">Quantity remaining: %d</string>
+
 </resources>

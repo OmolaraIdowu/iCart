@@ -1,10 +1,12 @@
 package com.swancodes.icart.ui.home
 
+import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.swancodes.icart.data.Product
 import com.swancodes.icart.data.ProductDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
