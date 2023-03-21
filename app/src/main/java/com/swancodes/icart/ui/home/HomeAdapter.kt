@@ -10,6 +10,8 @@ import com.swancodes.icart.R
 import com.swancodes.icart.data.Product
 import com.swancodes.icart.databinding.HomeItemBinding
 import com.swancodes.icart.utilities.loadImage
+import java.text.NumberFormat
+import java.util.*
 
 class HomeAdapter(
     private val listener: ItemClickListener
@@ -33,7 +35,8 @@ class HomeAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(productItem: Product, context: Context) = with(binding) {
             homeItemTitle.text = productItem.name
-            homeItemPrice.text = context.getString(R.string.currency, productItem.price)
+            val formatNum = NumberFormat.getNumberInstance(Locale.US).format(productItem.price)
+            homeItemPrice.text = context.getString(R.string.currency, formatNum)
             homeItemImageView.loadImage(productItem.imageUrl)
             homeShopButton.setOnClickListener {
                 // This should add item to cart

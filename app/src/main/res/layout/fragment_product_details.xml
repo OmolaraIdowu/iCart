@@ -6,25 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".ui.product.ProductDetailsFragment">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/productAddToCartButton"
-        app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toTopOf="@id/guidelineTop">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentInsetEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="50dp">
+            
             <ImageButton
-                android:id="@+id/backArrow"
+                android:id="@+id/backButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_back"
-                app:layout_constraintBottom_toTopOf="@id/cardView"
+                android:background="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,31 +36,39 @@
                 android:textAlignment="center"
                 android:textColor="@color/black_200"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/cardView"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/backArrow"
+                app:layout_constraintStart_toEndOf="@id/backButton"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
                 tools:text="Minimal Stand" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/productCheckoutButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/productImage"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:cardCornerRadius="14dp"
+                android:layout_height="240dp"
+                android:outlineProvider="background"
+                android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@id/productName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/backArrow">
-
-                <ImageView
-                    android:id="@+id/productImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="240dp"
-                    android:scaleType="centerCrop"
-                    tools:src="@tools:sample/backgrounds/scenic" />
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
 
             <TextView
                 android:id="@+id/productName"
@@ -72,9 +80,9 @@
                 android:textColor="@color/black_200"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@id/productPrice"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardView"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@id/productImage"
                 tools:text="Minimal Stand" />
 
             <TextView
@@ -87,7 +95,7 @@
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/ratingTextView"
                 app:layout_constraintEnd_toStartOf="@id/addButton"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
                 app:layout_constraintTop_toBottomOf="@id/productName"
                 tools:text="$ 25.00" />
 
@@ -126,7 +134,7 @@
                 android:background="@drawable/btn_bg_grey_2"
                 android:padding="4dp"
                 app:layout_constraintBottom_toBottomOf="@id/quantityTextView"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                 app:layout_constraintStart_toEndOf="@id/quantityTextView"
                 app:layout_constraintTop_toTopOf="@id/quantityTextView"
                 app:srcCompat="@drawable/ic_subtract" />
@@ -143,7 +151,7 @@
                 android:rating="4"
                 app:layout_constraintBottom_toBottomOf="@id/ratingTextView"
                 app:layout_constraintEnd_toStartOf="@id/ratingTextView"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
                 app:layout_constraintTop_toTopOf="@id/ratingTextView" />
 
             <TextView
@@ -171,7 +179,7 @@
                 android:textColor="@color/black_200"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@id/ratingTextView"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                 app:layout_constraintStart_toEndOf="@id/ratingTextView"
                 app:layout_constraintTop_toTopOf="@id/ratingTextView"
                 tools:text="Quantity remaining: 45" />
@@ -185,58 +193,61 @@
                 android:textAlignment="viewStart"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
                 app:layout_constraintTop_toBottomOf="@id/ratingTextView"
                 tools:text="Loading..." />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/productAddToCartButton"
+        android:id="@+id/productCheckoutButton"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/black_200"
         android:fontFamily="@font/poppins"
         android:text="@string/check_out"
         android:textAllCaps="false"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/productFavoriteButton" />
 
     <ImageButton
         android:id="@+id/productFavoriteButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:background="@drawable/btn_bg_grey_2"
-        android:src="@drawable/ic_favorite"
+        android:padding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/productAddToCartButton"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="16dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
-
+        app:layout_constraintEnd_toStartOf="@id/productCheckoutButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/productCheckoutButton"
+        app:srcCompat="@drawable/ic_favorite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
