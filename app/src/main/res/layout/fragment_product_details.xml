@@ -36,6 +36,12 @@
                 android:textAlignment="center"
                 android:textColor="@color/black_200"
                 android:textSize="16sp"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scrollHorizontally="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/backButton"
@@ -45,7 +51,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -220,7 +226,7 @@
                 app:layout_constraintGuide_begin="16dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/productCheckoutButton"

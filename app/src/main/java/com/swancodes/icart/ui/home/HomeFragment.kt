@@ -28,8 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = HomeAdapter(this)
-        val recyclerView = binding.homeRecyclerView
-        recyclerView.adapter = adapter
+        binding.homeRecyclerView.adapter = adapter
 
         viewModel.categories.observe(viewLifecycleOwner, ::setupCategorySelection)
         binding.categoryChipGroup.setOnCheckedStateChangeListener { group, checkedId ->

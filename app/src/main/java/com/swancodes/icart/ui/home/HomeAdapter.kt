@@ -1,6 +1,5 @@
 package com.swancodes.icart.ui.home
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -33,10 +32,10 @@ class HomeAdapter(
         private val binding: HomeItemBinding,
         private val listener: ItemClickListener
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(productItem: Product, context: Context) = with(binding) {
+        fun bind(productItem: Product) = with(binding) {
             homeItemTitle.text = productItem.name
             val formatNum = NumberFormat.getNumberInstance(Locale.US).format(productItem.price)
-            homeItemPrice.text = context.getString(R.string.currency, formatNum)
+            homeItemPrice.text = binding.root.context.getString(R.string.currency, formatNum)
             homeItemImageView.loadImage(productItem.imageUrl)
             homeShopButton.setOnClickListener {
                 // This should add item to cart
@@ -56,7 +55,7 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bind(getItem(position), holder.itemView.context)
+        holder.bind(getItem(position))
     }
 
 }
