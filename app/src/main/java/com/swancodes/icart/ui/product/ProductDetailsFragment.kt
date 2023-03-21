@@ -26,6 +26,7 @@ class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
             binding.productName.text = it.name
             binding.productHeader.text = it.name
             binding.productPrice.text = getString(R.string.currency, it.price)
+            binding.ratingBar.rating = it.rating.toFloat()
             binding.ratingTextView.text = it.rating.toString()
             binding.productDescription.text = it.description
             binding.quantityRemaining.text = getString(R.string.quantity_remaining, it.quantityRemaining)
