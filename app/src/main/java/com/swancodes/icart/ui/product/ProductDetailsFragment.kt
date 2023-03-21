@@ -8,6 +8,7 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.swancodes.icart.R
 import com.swancodes.icart.databinding.FragmentProductDetailsBinding
+import com.swancodes.icart.utilities.loadImage
 import com.swancodes.icart.utilities.viewBinding
 
 class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
@@ -21,11 +22,9 @@ class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
             findNavController().navigateUp()
         }
         args.product.let {
-            binding.productImage.load(it.imageUrl) {
-                placeholder(R.drawable.loading_animation)
-                error(R.drawable.ic_broken_image)
-            }
+            binding.productImage.loadImage(it.imageUrl)
             binding.productName.text = it.name
+            binding.productHeader.text = it.name
             binding.productPrice.text = getString(R.string.currency, it.price)
             binding.ratingTextView.text = it.rating.toString()
             binding.productDescription.text = it.description

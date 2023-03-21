@@ -8,12 +8,10 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.swancodes.icart.R
 import com.swancodes.icart.data.Product
 import com.swancodes.icart.databinding.FragmentHomeBinding
-import com.swancodes.icart.ui.MainViewModel
 import com.swancodes.icart.utilities.InjectorUtils
 import com.swancodes.icart.utilities.viewBinding
 import java.util.*
@@ -25,22 +23,21 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
             this
         )
     }
-    private val mainViewModel: MainViewModel by viewModels {
-        InjectorUtils.provideMainViewModelFactory(requireContext())
-    }
-    private lateinit var recyclerView: RecyclerView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val adapter = HomeAdapter(this)
+        val recyclerView = binding.homeRecyclerView
+        recyclerView.adapter = adapter
 
         viewModel.categories.observe(viewLifecycleOwner, ::setupCategorySelection)
         binding.categoryChipGroup.setOnCheckedStateChangeListener { group, checkedId ->
             Toast.makeText(requireContext(), "CheckedId: $checkedId", Toast.LENGTH_SHORT).show()
         }
 
-        mainViewModel.products.observe(viewLifecycleOwner) {
-            recyclerView = binding.homeRecyclerView
-            recyclerView.adapter = HomeAdapter(it, this)
+        viewModel.products.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
         }
     }
 
@@ -70,3 +67,4 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
         findNavController().navigate(action)
     }
 }
+

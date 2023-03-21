@@ -3,16 +3,29 @@ package com.swancodes.icart.ui.home
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.swancodes.icart.R
 import com.swancodes.icart.data.Product
 import com.swancodes.icart.databinding.HomeItemBinding
+import com.swancodes.icart.utilities.loadImage
 
 class HomeAdapter(
-    private val productList: List<Product>,
     private val listener: ItemClickListener
-) : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
+) : ListAdapter<Product, HomeAdapter.HomeViewHolder>(DiffCallback) {
+
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<Product>() {
+            override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+                return oldItem.productId == newItem.productId
+            }
+
+            override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 
     inner class HomeViewHolder(
         private val binding: HomeItemBinding,
@@ -21,10 +34,7 @@ class HomeAdapter(
         fun bind(productItem: Product, context: Context) = with(binding) {
             homeItemTitle.text = productItem.name
             homeItemPrice.text = context.getString(R.string.currency, productItem.price)
-            homeItemImageView.load(productItem.imageUrl) {
-                placeholder(R.drawable.loading_animation)
-                error(R.drawable.ic_broken_image)
-            }
+            homeItemImageView.loadImage(productItem.imageUrl)
             homeShopButton.setOnClickListener {
                 // This should add item to cart
             }
@@ -43,8 +53,8 @@ class HomeAdapter(
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bind(productList[position], holder.itemView.context)
+        holder.bind(getItem(position), holder.itemView.context)
     }
 
-    override fun getItemCount() = productList.size
 }
+

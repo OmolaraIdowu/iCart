@@ -113,7 +113,7 @@
         app:layout_constraintStart_toEndOf="@id/totalTextView"
         app:layout_constraintTop_toBottomOf="@id/promoEditText" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/checkOutButton"
         android:layout_width="0dp"
         android:layout_height="60dp"

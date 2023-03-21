@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@id/favoriteTextView"
         tools:listitem="@layout/favorite_item" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/addToCartButton"
         android:layout_width="0dp"
         android:layout_height="60dp"
