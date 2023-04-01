@@ -47,7 +47,7 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/productCheckoutButton"
+        app:layout_constraintBottom_toTopOf="@id/bottomSection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -220,32 +220,47 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/productCheckoutButton"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomSection"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="@color/black_200"
-        android:fontFamily="@font/poppins"
-        android:text="@string/check_out"
-        android:textAllCaps="false"
-        app:cornerRadius="8dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/productFavoriteButton" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageButton
-        android:id="@+id/productFavoriteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:background="@drawable/btn_bg_grey_2"
-        android:padding="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/productCheckoutButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/productCheckoutButton"
-        app:srcCompat="@drawable/ic_favorite" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="16dp">
+
+            <ImageButton
+                android:id="@+id/productFavoriteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/btn_bg_grey_2"
+                android:padding="12dp"
+                app:srcCompat="@drawable/ic_favorite" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/productCheckoutButton"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black_200"
+                android:fontFamily="@font/poppins"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/check_out"
+                android:textAllCaps="false"
+                app:cornerRadius="8dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
