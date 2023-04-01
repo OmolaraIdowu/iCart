@@ -62,7 +62,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_cancel" />
 
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
@@ -73,10 +72,11 @@
         app:layout_constraintTop_toBottomOf="@id/cartItemLayout" />
 
     <ImageButton
-        android:id="@+id/addButton"
+        android:id="@+id/minusButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:padding="4dp"
         android:background="@drawable/btn_bg_grey_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/quantityTextView"
@@ -92,18 +92,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/_01"
+        android:text="@string/_1"
         android:textColor="@color/black_200"
-        app:layout_constraintBottom_toBottomOf="@id/addButton"
-        app:layout_constraintEnd_toStartOf="@id/minusButton"
+        app:layout_constraintBottom_toBottomOf="@id/minusButton"
+        app:layout_constraintEnd_toStartOf="@id/addButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/addButton"
-        app:layout_constraintTop_toTopOf="@id/addButton" />
+        app:layout_constraintStart_toEndOf="@id/minusButton"
+        app:layout_constraintTop_toTopOf="@id/minusButton" />
 
     <ImageButton
-        android:id="@+id/minusButton"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="4dp"
         android:background="@drawable/btn_bg_grey_2"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@id/quantityTextView"

@@ -8,9 +8,10 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/homeItemLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="14dp"
+        android:elevation="4dp"
         app:layout_constraintBottom_toTopOf="@id/homeItemTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,17 +20,15 @@
         <ImageView
             android:id="@+id/homeItemImageView"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="240dp"
             android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <ImageButton
             android:id="@+id/homeShopButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
             android:layout_gravity="end|bottom"
             android:layout_margin="10dp"
             android:background="@drawable/btn_bg_grey_2"
@@ -41,10 +40,11 @@
 
     <TextView
         android:id="@+id/homeItemTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
+        app:layout_constraintBottom_toTopOf="@id/homeItemPrice"
         app:layout_constraintEnd_toEndOf="@id/homeItemLayout"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/homeItemLayout"
@@ -53,8 +53,9 @@
 
     <TextView
         android:id="@+id/homeItemPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppins_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

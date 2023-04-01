@@ -24,6 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@id/barrier"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
@@ -61,7 +62,7 @@
         android:hint="@string/enter_promo_code"
         android:inputType="textNoSuggestions"
         android:maxLines="1"
-        android:maxEms="20"
+        android:maxLength="20"
         android:padding="8dp"
         android:textColor="@color/black_200"
         android:textIsSelectable="true"
@@ -113,7 +114,7 @@
         app:layout_constraintStart_toEndOf="@id/totalTextView"
         app:layout_constraintTop_toBottomOf="@id/promoEditText" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/checkOutButton"
         android:layout_width="0dp"
         android:layout_height="60dp"

@@ -1,6 +1,7 @@
 package com.swancodes.icart.ui
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,17 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         binding.bottomNavView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.homeFragment ||
+                destination.id == R.id.favoriteFragment ||
+                destination.id == R.id.cartFragment) {
+
+                binding.bottomNavView.visibility = View.VISIBLE
+            } else {
+                binding.bottomNavView.visibility = View.GONE
+            }
+        }
 
         mainViewModel.products.observe(this) {
             // TODO: Remove when actual implementation is available
