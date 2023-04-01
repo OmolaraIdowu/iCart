@@ -56,6 +56,4 @@ class HomeAdapter(
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-
 }
-

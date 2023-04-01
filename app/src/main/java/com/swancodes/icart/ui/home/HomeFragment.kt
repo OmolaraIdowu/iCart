@@ -38,6 +38,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
         viewModel.products.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
+        binding.searchView.setOnClickListener { findNavController().navigate(HomeFragmentDirections.toSearchFragment()) }
     }
 
     private fun setupCategorySelection(categories: List<String>) {
@@ -66,4 +67,3 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
         findNavController().navigate(action)
     }
 }
-

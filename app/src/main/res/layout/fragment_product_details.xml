@@ -11,36 +11,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:contentInsetEnd="16dp"
-        app:navigationIcon="@drawable/ic_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/productHeader"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/poppins_bold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/black_200"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Minimal Stand" />
 
-            <TextView
-                android:id="@+id/productHeader"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:ellipsize="marquee"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:fontFamily="@font/poppins_bold"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
-                android:textAlignment="center"
-                android:textColor="@color/black_200"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Minimal Stand" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
@@ -59,9 +53,12 @@
             <ImageView
                 android:id="@+id/productImage"
                 android:layout_width="0dp"
-                android:layout_height="240dp"
-                android:outlineProvider="background"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:minHeight="240dp"
+                android:maxHeight="440dp"
                 android:scaleType="centerCrop"
+                android:contentDescription="@string/product_image"
                 app:layout_constraintBottom_toTopOf="@id/productName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +101,7 @@
                 android:layout_marginStart="8dp"
                 android:background="@drawable/btn_bg_grey_2"
                 android:padding="4dp"
+                android:contentDescription="@string/decrease_button"
                 app:layout_constraintBottom_toBottomOf="@id/productPrice"
                 app:layout_constraintEnd_toStartOf="@id/quantityTextView"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -131,6 +129,7 @@
                 android:layout_marginStart="8dp"
                 android:background="@drawable/btn_bg_grey_2"
                 android:padding="4dp"
+                android:contentDescription="@string/increase_button"
                 app:layout_constraintBottom_toBottomOf="@id/quantityTextView"
                 app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                 app:layout_constraintStart_toEndOf="@id/quantityTextView"
@@ -243,6 +242,7 @@
                 android:layout_marginStart="16dp"
                 android:background="@drawable/btn_bg_grey_2"
                 android:padding="12dp"
+                android:contentDescription="@string/bookmark_button"
                 app:srcCompat="@drawable/ic_favorite" />
 
             <com.google.android.material.button.MaterialButton

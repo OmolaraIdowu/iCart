@@ -23,5 +23,10 @@
     <string name="_1">1</string>
     <string name="currency">\u20A6 %s</string>
     <string name="quantity_remaining">Quantity remaining: %d</string>
+    <string name="decrease_button">Decrease button</string>
+    <string name="increase_button">Increase button</string>
+    <string name="bookmark_button">Bookmark button</string>
+    <string name="product_image">Product image</string>
+    <string name="text_search">Search</string>
 
 </resources>
