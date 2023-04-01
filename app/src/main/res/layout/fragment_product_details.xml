@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:contentInsetEnd="16dp"
+        app:navigationIcon="@drawable/ic_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -18,33 +19,24 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="50dp">
-            
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/productHeader"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:fontFamily="@font/poppins_bold"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
                 android:textAlignment="center"
                 android:textColor="@color/black_200"
                 android:textSize="16sp"
-                android:singleLine="true"
-                android:ellipsize="marquee"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:scrollHorizontally="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/backButton"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Minimal Stand" />
 
@@ -100,13 +92,13 @@
                 android:textColor="@color/black_200"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/ratingTextView"
-                app:layout_constraintEnd_toStartOf="@id/addButton"
+                app:layout_constraintEnd_toStartOf="@id/minusButton"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart"
                 app:layout_constraintTop_toBottomOf="@id/productName"
                 tools:text="$ 25.00" />
 
             <ImageButton
-                android:id="@+id/addButton"
+                android:id="@+id/minusButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -117,7 +109,7 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@id/productPrice"
                 app:layout_constraintTop_toTopOf="@id/productPrice"
-                app:srcCompat="@drawable/ic_add" />
+                app:srcCompat="@drawable/ic_subtract" />
 
             <TextView
                 android:id="@+id/quantityTextView"
@@ -125,15 +117,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:padding="4dp"
-                android:text="@string/_01"
+                android:text="@string/_1"
                 android:textColor="@color/black_200"
-                app:layout_constraintBottom_toBottomOf="@id/addButton"
-                app:layout_constraintEnd_toStartOf="@id/minusButton"
-                app:layout_constraintStart_toEndOf="@id/addButton"
-                app:layout_constraintTop_toTopOf="@id/addButton" />
+                app:layout_constraintBottom_toBottomOf="@id/minusButton"
+                app:layout_constraintEnd_toStartOf="@id/addButton"
+                app:layout_constraintStart_toEndOf="@id/minusButton"
+                app:layout_constraintTop_toTopOf="@id/minusButton" />
 
             <ImageButton
-                android:id="@+id/minusButton"
+                android:id="@+id/addButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -143,7 +135,7 @@
                 app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                 app:layout_constraintStart_toEndOf="@id/quantityTextView"
                 app:layout_constraintTop_toTopOf="@id/quantityTextView"
-                app:srcCompat="@drawable/ic_subtract" />
+                app:srcCompat="@drawable/ic_add" />
 
             <RatingBar
                 android:id="@+id/ratingBar"

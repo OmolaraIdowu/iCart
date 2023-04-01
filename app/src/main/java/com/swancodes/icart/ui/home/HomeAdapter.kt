@@ -30,11 +30,10 @@ class HomeAdapter(
 
     inner class HomeViewHolder(
         private val binding: HomeItemBinding,
-        private val listener: ItemClickListener
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(productItem: Product) = with(binding) {
             homeItemTitle.text = productItem.name
-            val formatNum = NumberFormat.getNumberInstance(Locale.US).format(productItem.price)
+            val formatNum = NumberFormat.getNumberInstance(Locale.getDefault()).format(productItem.price)
             homeItemPrice.text = binding.root.context.getString(R.string.currency, formatNum)
             homeItemImageView.loadImage(productItem.imageUrl)
             homeShopButton.setOnClickListener {
@@ -50,7 +49,7 @@ class HomeAdapter(
         return HomeViewHolder(
             HomeItemBinding.bind(
                 LayoutInflater.from(parent.context).inflate(R.layout.home_item, parent, false)
-            ), listener
+            )
         )
     }
 

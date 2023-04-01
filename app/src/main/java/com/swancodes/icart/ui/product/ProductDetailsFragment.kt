@@ -20,19 +20,15 @@ class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.backButton.setOnClickListener {
-            findNavController().navigateUp()
-        }
-
-        loadProduct(args.product)
+        displayProductInfo(args.product)
     }
 
-    private fun loadProduct(it: Product) {
+    private fun displayProductInfo(it: Product) {
         binding.productImage.loadImage(it.imageUrl)
         binding.productName.text = it.name
         binding.productHeader.text = it.name
         binding.productHeader.isSelected = true
-        val formatNum = NumberFormat.getNumberInstance(Locale.US).format(it.price)
+        val formatNum = NumberFormat.getNumberInstance(Locale.getDefault()).format(it.price)
         binding.productPrice.text = getString(R.string.currency, formatNum)
         binding.ratingBar.rating = it.rating.toFloat()
         binding.ratingTextView.text = it.rating.toString()

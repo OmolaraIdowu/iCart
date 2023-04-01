@@ -62,7 +62,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
     }
 
     override fun onItemClick(product: Product) {
-        val action = HomeFragmentDirections.actionHomeFragmentToProductDetailsFragment(product)
+        val action = HomeFragmentDirections.toProductDetailsFragment(product)
         findNavController().navigate(action)
     }
 }
