@@ -40,7 +40,7 @@ class HomeAdapter(
                 // This should add item to cart
             }
             root.setOnClickListener {
-                listener.onItemClick(productItem)
+                listener.onItemClick(productItem.productId)
             }
         }
     }

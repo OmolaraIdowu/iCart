@@ -89,13 +89,13 @@
                 android:textColor="@color/black_200"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toTopOf="@id/ratingTextView"
-                app:layout_constraintEnd_toStartOf="@id/minusButton"
+                app:layout_constraintEnd_toStartOf="@id/decreaseButton"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart"
                 app:layout_constraintTop_toBottomOf="@id/productName"
                 tools:text="$ 25.00" />
 
             <ImageButton
-                android:id="@+id/minusButton"
+                android:id="@+id/decreaseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -117,13 +117,13 @@
                 android:padding="4dp"
                 android:text="@string/_1"
                 android:textColor="@color/black_200"
-                app:layout_constraintBottom_toBottomOf="@id/minusButton"
-                app:layout_constraintEnd_toStartOf="@id/addButton"
-                app:layout_constraintStart_toEndOf="@id/minusButton"
-                app:layout_constraintTop_toTopOf="@id/minusButton" />
+                app:layout_constraintBottom_toBottomOf="@id/decreaseButton"
+                app:layout_constraintEnd_toStartOf="@id/increaseButton"
+                app:layout_constraintStart_toEndOf="@id/decreaseButton"
+                app:layout_constraintTop_toTopOf="@id/decreaseButton" />
 
             <ImageButton
-                android:id="@+id/addButton"
+                android:id="@+id/increaseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
