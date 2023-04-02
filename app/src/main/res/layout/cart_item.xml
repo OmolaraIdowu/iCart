@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/cartItemLayout" />
 
     <ImageButton
-        android:id="@+id/minusButton"
+        android:id="@+id/decreaseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -94,14 +94,14 @@
         android:layout_marginStart="8dp"
         android:text="@string/_1"
         android:textColor="@color/black_200"
-        app:layout_constraintBottom_toBottomOf="@id/minusButton"
-        app:layout_constraintEnd_toStartOf="@id/addButton"
+        app:layout_constraintBottom_toBottomOf="@id/decreaseButton"
+        app:layout_constraintEnd_toStartOf="@id/increaseButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/minusButton"
-        app:layout_constraintTop_toTopOf="@id/minusButton" />
+        app:layout_constraintStart_toEndOf="@id/decreaseButton"
+        app:layout_constraintTop_toTopOf="@id/decreaseButton" />
 
     <ImageButton
-        android:id="@+id/addButton"
+        android:id="@+id/increaseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"

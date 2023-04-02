@@ -44,7 +44,7 @@ class HomeViewModelFactory(private val dao: ProductDao) : ViewModelProvider.Fact
         return if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
             HomeViewModel(dao) as T
         } else {
-            throw IllegalArgumentException("ViewModel class: ${modelClass.canonicalName} ia not assignable")
+            throw IllegalArgumentException("ViewModel class: ${modelClass.canonicalName} is not assignable")
         }
     }
 }
