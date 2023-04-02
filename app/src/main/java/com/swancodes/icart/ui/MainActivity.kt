@@ -2,7 +2,6 @@ package com.swancodes.icart.ui
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -43,8 +42,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainViewModel.products.observe(this) {
-            // TODO: Remove when actual implementation is available
-            Toast.makeText(this, "$it", Toast.LENGTH_SHORT).show()
+
         }
     }
 }
