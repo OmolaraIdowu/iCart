@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
 import com.swancodes.icart.R
-import com.swancodes.icart.data.Product
 import com.swancodes.icart.databinding.FragmentHomeBinding
 import com.swancodes.icart.utilities.InjectorUtils
 import com.swancodes.icart.utilities.viewBinding
@@ -31,14 +31,30 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
         binding.homeRecyclerView.adapter = adapter
 
         viewModel.categories.observe(viewLifecycleOwner, ::setupCategorySelection)
-        binding.categoryChipGroup.setOnCheckedStateChangeListener { group, checkedId ->
+        binding.categoryChipGroup.setOnCheckedStateChangeListener { _, checkedId ->
             Toast.makeText(requireContext(), "CheckedId: $checkedId", Toast.LENGTH_SHORT).show()
         }
 
         viewModel.products.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
-        binding.searchView.setOnClickListener { findNavController().navigate(HomeFragmentDirections.toSearchFragment()) }
+        setupToolbar()
+    }
+
+    private fun setupToolbar() = with(binding) {
+        toolbar.apply {
+            setNavigationOnClickListener {
+                findNavController().navigate(
+                    HomeFragmentDirections.toSearchFragment()
+                )
+            }
+            setOnMenuItemClickListener {
+                if (it.itemId == R.id.action_filter_toggle) {
+                    binding.categoryChipGroup.isVisible = !binding.categoryChipGroup.isVisible
+                }
+                true
+            }
+        }
     }
 
     private fun setupCategorySelection(categories: List<String>) {

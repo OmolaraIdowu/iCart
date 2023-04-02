@@ -28,5 +28,6 @@
     <string name="bookmark_button">Bookmark button</string>
     <string name="product_image">Product image</string>
     <string name="text_search">Search</string>
+    <string name="toggle_filter">Toggle Filter</string>
 
 </resources>
