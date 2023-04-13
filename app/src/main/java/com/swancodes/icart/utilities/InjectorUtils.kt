@@ -2,11 +2,9 @@ package com.swancodes.icart.utilities
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import com.swancodes.icart.data.Product
 import com.swancodes.icart.data.ProductDatabase
 import com.swancodes.icart.ui.MainViewModelFactory
 import com.swancodes.icart.ui.home.HomeViewModelFactory
-import com.swancodes.icart.ui.product.ProductDetailsViewModel
 import com.swancodes.icart.ui.product.ProductDetailsViewModelFactory
 
 object InjectorUtils {
