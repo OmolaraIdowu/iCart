@@ -31,8 +31,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
         binding.homeRecyclerView.adapter = adapter
 
         viewModel.categories.observe(viewLifecycleOwner, ::setupCategorySelection)
-        binding.categoryChipGroup.setOnCheckedStateChangeListener { _, checkedId ->
-            Toast.makeText(requireContext(), "CheckedId: $checkedId", Toast.LENGTH_SHORT).show()
+
+        viewModel.category.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
         }
 
         viewModel.products.observe(viewLifecycleOwner) {
@@ -60,10 +61,24 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
     private fun setupCategorySelection(categories: List<String>) {
         categories.forEachIndexed { index, category ->
             val chip = createChip(text = category, id = index + 1)
+
+            chip.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    viewModel.getProductsByCategory(category)
+                    Toast.makeText(requireContext(), "Category: ${category.uppercase()}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
             binding.categoryChipGroup.addView(chip, index)
         }
         val chip = createChip(text = getString(R.string.all), id = 0)
         chip.isChecked = true
+        chip.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                viewModel.getAllProducts()
+                Toast.makeText(requireContext(), "Category: ALL", Toast.LENGTH_SHORT).show()
+            }
+        }
         binding.categoryChipGroup.addView(chip, 0)
     }
 

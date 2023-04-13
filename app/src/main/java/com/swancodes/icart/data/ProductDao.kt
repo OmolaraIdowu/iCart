@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
+import java.util.*
 
 @Dao
 abstract class ProductDao {
@@ -21,4 +22,6 @@ abstract class ProductDao {
     @Query("SELECT * FROM productTable WHERE productId = :productId")
     abstract fun getProductById(productId: String): Flow<Product>
 
+    @Query("SELECT * FROM productTable WHERE category = :category")
+    abstract fun getProductsByCategory(category: String): Flow<List<Product>>
 }

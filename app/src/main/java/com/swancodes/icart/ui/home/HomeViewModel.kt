@@ -13,6 +13,9 @@ class HomeViewModel(private val dao: ProductDao) : ViewModel() {
     private val _categories = MutableLiveData<List<String>>()
     val categories: LiveData<List<String>> get() = _categories
 
+    private val _category = MutableLiveData<List<Product>>()
+    val category: LiveData<List<Product>> get() = _category
+
     private val _products: MutableLiveData<List<Product>> = MutableLiveData()
     val products: LiveData<List<Product>> get() = _products
 
@@ -29,10 +32,18 @@ class HomeViewModel(private val dao: ProductDao) : ViewModel() {
         }
     }
 
-    private fun getAllProducts() {
+    fun getAllProducts() {
         viewModelScope.launch {
             dao.getAllProducts().flowOn(Dispatchers.IO).collectLatest {
                 _products.value = it
+                _category.value = it
+            }
+        }
+    }
+    fun getProductsByCategory(category: String) {
+        viewModelScope.launch {
+            dao.getProductsByCategory(category).flowOn(Dispatchers.IO).collectLatest {
+                _category.value = it
             }
         }
     }

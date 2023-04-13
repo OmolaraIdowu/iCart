@@ -11,7 +11,6 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
     private val binding: FragmentCartBinding by viewBinding(FragmentCartBinding::bind)
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
