@@ -40,9 +40,5 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomNavView.visibility = View.GONE
             }
         }
-
-        mainViewModel.products.observe(this) {
-
-        }
     }
 }

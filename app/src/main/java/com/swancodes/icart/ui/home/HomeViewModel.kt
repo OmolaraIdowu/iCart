@@ -13,15 +13,18 @@ class HomeViewModel(private val dao: ProductDao) : ViewModel() {
     private val _categories = MutableLiveData<List<String>>()
     val categories: LiveData<List<String>> get() = _categories
 
-    private val _category = MutableLiveData<List<Product>>()
-    val category: LiveData<List<Product>> get() = _category
-
     private val _products: MutableLiveData<List<Product>> = MutableLiveData()
     val products: LiveData<List<Product>> get() = _products
 
+    private val _categoryListState = MutableLiveData(false)
+    val categoryListState: LiveData<Boolean> get() = _categoryListState
+
+    private val _checkedCategory = MutableLiveData<Int>()
+    val checkedCategory: LiveData<Int> = _checkedCategory
+
     init {
         getCategories()
-        getAllProducts()
+        getAllProducts("")
     }
 
     private fun getCategories() {
@@ -32,20 +35,20 @@ class HomeViewModel(private val dao: ProductDao) : ViewModel() {
         }
     }
 
-    fun getAllProducts() {
+    fun getAllProducts(category: String) {
         viewModelScope.launch {
-            dao.getAllProducts().flowOn(Dispatchers.IO).collectLatest {
+            dao.getProductsByCategory(category).flowOn(Dispatchers.IO).collectLatest {
                 _products.value = it
-                _category.value = it
             }
         }
     }
-    fun getProductsByCategory(category: String) {
-        viewModelScope.launch {
-            dao.getProductsByCategory(category).flowOn(Dispatchers.IO).collectLatest {
-                _category.value = it
-            }
-        }
+
+    fun setCategoryListState(state: Boolean) {
+        _categoryListState.value = state
+    }
+
+    fun setCheckedCategoryId(id: Int) {
+        _checkedCategory.value = id
     }
 }
 
