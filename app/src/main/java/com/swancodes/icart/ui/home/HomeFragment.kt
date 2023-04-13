@@ -3,7 +3,6 @@ package com.swancodes.icart.ui.home
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -17,29 +16,26 @@ import com.swancodes.icart.utilities.viewBinding
 import java.util.*
 
 class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
+
     private val binding: FragmentHomeBinding by viewBinding(FragmentHomeBinding::bind)
     private val viewModel: HomeViewModel by viewModels {
         InjectorUtils.provideHomeViewModelFactory(
             this
         )
     }
+    private val adapter: HomeAdapter by lazy { HomeAdapter(this) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = HomeAdapter(this)
         binding.homeRecyclerView.adapter = adapter
 
-        viewModel.categories.observe(viewLifecycleOwner, ::setupCategorySelection)
-
-        viewModel.category.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
-
-        viewModel.products.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
+        setupObservers()
         setupToolbar()
+
+        binding.categoryChipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
+            viewModel.setCheckedCategoryId(checkedIds.first())
+        }
     }
 
     private fun setupToolbar() = with(binding) {
@@ -51,10 +47,22 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
             }
             setOnMenuItemClickListener {
                 if (it.itemId == R.id.action_filter_toggle) {
-                    binding.categoryChipGroup.isVisible = !binding.categoryChipGroup.isVisible
+                    viewModel.setCategoryListState(!binding.categoryChipGroup.isVisible)
                 }
                 true
             }
+        }
+    }
+
+    private fun setupObservers() {
+        viewModel.categories.observe(viewLifecycleOwner, ::setupCategorySelection)
+
+        viewModel.products.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+        viewModel.categoryListState.observe(viewLifecycleOwner) {
+            binding.categoryChipGroup.isVisible = it
         }
     }
 
@@ -64,8 +72,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
 
             chip.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    viewModel.getProductsByCategory(category)
-                    Toast.makeText(requireContext(), "Category: ${category.uppercase()}", Toast.LENGTH_SHORT).show()
+                    viewModel.getAllProducts(category)
                 }
             }
 
@@ -75,8 +82,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
         chip.isChecked = true
         chip.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                viewModel.getAllProducts()
-                Toast.makeText(requireContext(), "Category: ALL", Toast.LENGTH_SHORT).show()
+                viewModel.getAllProducts("")
             }
         }
         binding.categoryChipGroup.addView(chip, 0)
@@ -96,5 +102,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
     override fun onItemClick(productId: String) {
         val action = HomeFragmentDirections.toProductDetailsFragment(productId)
         findNavController().navigate(action)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.checkedCategory.observe(viewLifecycleOwner) {
+            binding.categoryChipGroup.check(it)
+        }
     }
 }
