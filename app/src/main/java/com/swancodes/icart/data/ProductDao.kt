@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 import java.util.*
 
@@ -24,4 +25,7 @@ abstract class ProductDao {
      */
     @Query("SELECT * FROM productTable WHERE category LIKE '%' || :category || '%'")
     abstract fun getProductsByCategory(category: String): Flow<List<Product>>
+
+    @Update
+    abstract fun updateProduct(product: Product)
 }
