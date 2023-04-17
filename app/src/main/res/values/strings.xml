@@ -24,5 +24,7 @@
     <string name="product_image">Product image</string>
     <string name="text_search">Search</string>
     <string name="toggle_filter">Toggle Filter</string>
+    <string name="out_of_stock">OUT OF STOCK</string>
+    <string name="_0">0</string>
 
 </resources>
