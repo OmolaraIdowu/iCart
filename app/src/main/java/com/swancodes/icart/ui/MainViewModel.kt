@@ -2,7 +2,7 @@ package com.swancodes.icart.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.swancodes.icart.data.ProductDao
+import com.swancodes.icart.data.product.ProductDao
 
 class MainViewModel(private val dao: ProductDao) : ViewModel() {
 

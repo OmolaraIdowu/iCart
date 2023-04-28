@@ -14,34 +14,87 @@
         android:text="@string/my_cart"
         android:textColor="@color/black_200"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/cartRV"
+        app:layout_constraintBottom_toTopOf="@id/cartRecyclerView"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toTopOf="@id/guidelineTop" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cartRV"
+        android:id="@+id/cartRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/barrier"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@id/cartTextView"
         tools:listitem="@layout/cart_item"/>
 
-    <TextView
-        android:id="@+id/emptyText"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emptyView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
-        android:textColor="@color/black_200"
-        android:text="@string/no_items_in_the_cart"
-        app:layout_constraintBottom_toTopOf="@id/checkOutButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toTopOf="@id/guidelineTop" />
+        app:layout_constraintTop_toTopOf="@id/guidelineTop">
+
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_shopping_cart"
+            app:layout_constraintBottom_toTopOf="@id/cartText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
+
+        <TextView
+            android:id="@+id/cartText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/no_items_in_the_cart"
+            android:textColor="@color/black_200"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/cartText2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cart" />
+
+        <TextView
+            android:id="@+id/cartText2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins"
+            android:textAlignment="center"
+            android:text="@string/browse_our_categories_and_discover_our_best_deals"
+            android:textColor="@color/black_200"
+            app:layout_constraintBottom_toTopOf="@id/shopButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cartText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shopButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/black_200"
+            android:text="@string/start_shopping"
+            android:fontFamily="@font/poppins"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@id/cartText2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"

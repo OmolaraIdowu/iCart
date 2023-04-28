@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "636fd0404a666f920401c680aa32c716",
+    "identityHash": "6704b31edabe3779a711a22cb9413b94",
     "entities": [
       {
         "tableName": "productTable",
@@ -67,60 +67,18 @@
         "foreignKeys": []
       },
       {
-        "tableName": "cartTable",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`quantity` INTEGER NOT NULL, `productId` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `rating` REAL NOT NULL, `category` TEXT NOT NULL, `imageUrl` TEXT NOT NULL, `price` INTEGER NOT NULL, `quantityRemaining` INTEGER NOT NULL, PRIMARY KEY(`productId`, `name`, `description`, `rating`, `category`, `imageUrl`, `price`, `quantityRemaining`))",
+        "tableName": "Cart",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`productId` TEXT NOT NULL, `quantity` INTEGER NOT NULL, PRIMARY KEY(`productId`))",
         "fields": [
           {
-            "fieldPath": "quantity",
-            "columnName": "quantity",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "product.productId",
+            "fieldPath": "productId",
             "columnName": "productId",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "product.name",
-            "columnName": "name",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "product.description",
-            "columnName": "description",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "product.rating",
-            "columnName": "rating",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "product.category",
-            "columnName": "category",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "product.imageUrl",
-            "columnName": "imageUrl",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "product.price",
-            "columnName": "price",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "product.quantityRemaining",
-            "columnName": "quantityRemaining",
+            "fieldPath": "quantity",
+            "columnName": "quantity",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -128,14 +86,7 @@
         "primaryKey": {
           "autoGenerate": false,
           "columnNames": [
-            "productId",
-            "name",
-            "description",
-            "rating",
-            "category",
-            "imageUrl",
-            "price",
-            "quantityRemaining"
+            "productId"
           ]
         },
         "indices": [],
@@ -145,7 +96,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '636fd0404a666f920401c680aa32c716')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6704b31edabe3779a711a22cb9413b94')"
     ]
   }
 }

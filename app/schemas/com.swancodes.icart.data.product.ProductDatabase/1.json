@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "636fd0404a666f920401c680aa32c716",
+    "identityHash": "53bf383a224d8d36e0498b78e8e984e2",
     "entities": [
       {
         "tableName": "productTable",
@@ -68,7 +68,7 @@
       },
       {
         "tableName": "cartTable",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`quantity` INTEGER NOT NULL, `productId` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `rating` REAL NOT NULL, `category` TEXT NOT NULL, `imageUrl` TEXT NOT NULL, `price` INTEGER NOT NULL, `quantityRemaining` INTEGER NOT NULL, PRIMARY KEY(`productId`, `name`, `description`, `rating`, `category`, `imageUrl`, `price`, `quantityRemaining`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`quantity` INTEGER NOT NULL, `productId` TEXT NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `rating` REAL NOT NULL, `category` TEXT NOT NULL, `imageUrl` TEXT NOT NULL, `price` INTEGER NOT NULL, `quantityRemaining` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "quantity",
@@ -127,16 +127,7 @@
         ],
         "primaryKey": {
           "autoGenerate": false,
-          "columnNames": [
-            "productId",
-            "name",
-            "description",
-            "rating",
-            "category",
-            "imageUrl",
-            "price",
-            "quantityRemaining"
-          ]
+          "columnNames": []
         },
         "indices": [],
         "foreignKeys": []
@@ -145,7 +136,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '636fd0404a666f920401c680aa32c716')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '53bf383a224d8d36e0498b78e8e984e2')"
     ]
   }
 }

@@ -29,19 +29,21 @@
 
     <TextView
         android:id="@+id/cartItemTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppins"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@id/cartItemPrice"
+        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
         app:layout_constraintStart_toEndOf="@id/cartItemLayout"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Minimal Stand" />
 
     <TextView
         android:id="@+id/cartItemPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/poppins_bold"
@@ -58,8 +60,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/cartQuantityRemaining"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_cancel" />
 
     <View
@@ -76,19 +80,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:padding="4dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/btn_bg_grey_2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/quantityTextView"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@id/cartQuantityRemaining"
+        app:layout_constraintEnd_toStartOf="@id/cartQuantityTextView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/cartItemLayout"
         app:layout_constraintTop_toBottomOf="@id/cartItemPrice"
-        app:layout_constraintVertical_bias="0.73"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_subtract" />
 
     <TextView
-        android:id="@+id/quantityTextView"
+        android:id="@+id/cartQuantityTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -107,10 +111,27 @@
         android:padding="4dp"
         android:background="@drawable/btn_bg_grey_2"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@id/quantityTextView"
-        app:layout_constraintStart_toEndOf="@id/quantityTextView"
-        app:layout_constraintTop_toTopOf="@id/quantityTextView"
-        app:srcCompat="@drawable/ic_subtract" />
+        app:layout_constraintBottom_toBottomOf="@id/cartQuantityTextView"
+        app:layout_constraintStart_toEndOf="@id/cartQuantityTextView"
+        app:layout_constraintTop_toTopOf="@id/cartQuantityTextView"
+        app:srcCompat="@drawable/ic_add" />
+
+    <TextView
+        android:id="@+id/cartQuantityRemaining"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/black_200"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cartItemLayout"
+        app:layout_constraintTop_toBottomOf="@id/decreaseButton"
+        tools:text="Quantity remaining: 45" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

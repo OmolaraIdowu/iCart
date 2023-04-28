@@ -13,7 +13,7 @@
     <string name="enter_promo_code">Enter your promo code</string>
     <string name="total">Total</string>
     <string name="check_out">Checkout</string>
-    <string name="no_items_in_the_cart">You have not added any item to cart</string>
+    <string name="no_items_in_the_cart">Your cart is empty!</string>
     <string name="my_cart">My Cart</string>
     <string name="_1">1</string>
     <string name="currency">\u20A6 %s</string>
@@ -26,5 +26,11 @@
     <string name="toggle_filter">Toggle Filter</string>
     <string name="out_of_stock">OUT OF STOCK</string>
     <string name="_0">0</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="remove_item_from_cart">Do you wish to remove this item from cart?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="start_shopping">Start Shopping</string>
+    <string name="browse_our_categories_and_discover_our_best_deals">Browse our categories and discover our best deals!</string>
 
 </resources>

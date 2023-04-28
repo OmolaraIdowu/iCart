@@ -9,7 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
+import com.google.android.material.snackbar.Snackbar
 import com.swancodes.icart.R
+import com.swancodes.icart.data.cart.Cart
 import com.swancodes.icart.databinding.FragmentHomeBinding
 import com.swancodes.icart.utilities.InjectorUtils
 import com.swancodes.icart.utilities.viewBinding
@@ -102,6 +104,13 @@ class HomeFragment : Fragment(R.layout.fragment_home), ItemClickListener {
     override fun onItemClick(productId: String) {
         findNavController().navigate(HomeFragmentDirections.toProductDetailsFragment(productId))
     }
+
+    override fun onAddToCart(cart: Cart) {
+        viewModel.insertCartItem(cart)
+        Snackbar.make(binding.root, "Item added to cart successfully", Snackbar.LENGTH_SHORT)
+            .show()
+    }
+
 
     override fun onResume() {
         super.onResume()

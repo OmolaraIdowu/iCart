@@ -1,4 +1,4 @@
-package com.swancodes.icart.data
+package com.swancodes.icart.data.product
 
 import android.os.Parcelable
 import androidx.room.Entity

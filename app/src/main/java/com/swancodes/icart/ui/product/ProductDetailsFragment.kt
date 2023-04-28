@@ -8,7 +8,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.swancodes.icart.R
-import com.swancodes.icart.data.Product
+import com.swancodes.icart.data.cart.Cart
+import com.swancodes.icart.data.product.Product
 import com.swancodes.icart.databinding.FragmentProductDetailsBinding
 import com.swancodes.icart.utilities.InjectorUtils
 import com.swancodes.icart.utilities.loadImage
@@ -95,12 +96,14 @@ class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
             }
         }
 
-        binding.productCheckoutButton.setOnClickListener {
+        binding.productAddToCartButton.setOnClickListener {
             if (quantity == 0) {
                 Snackbar.make(binding.root, "Please select at least one item to checkout", Snackbar.LENGTH_SHORT).show()
             } else {
-                viewModel.updateProduct()
-                findNavController().navigate(ProductDetailsFragmentDirections.toCartFragment())
+                val cart = Cart(product, quantity)
+                viewModel.insertCartItem(cart)
+                Snackbar.make(binding.root, "Item added to cart successfully", Snackbar.LENGTH_SHORT)
+                    .show()
             }
         }
     }
