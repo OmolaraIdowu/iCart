@@ -28,7 +28,15 @@
         android:id="@+id/cartFragment"
         android:name="com.swancodes.icart.ui.cart.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/productDetailsFragment"
         android:name="com.swancodes.icart.ui.product.ProductDetailsFragment"
@@ -37,9 +45,6 @@
         <argument
             android:name="productId"
             app:argType="string" />
-        <action
-            android:id="@+id/to_cartFragment"
-            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"

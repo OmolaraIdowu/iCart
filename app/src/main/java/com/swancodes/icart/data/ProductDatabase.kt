@@ -8,13 +8,18 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import com.swancodes.icart.data.cart.Cart
+import com.swancodes.icart.data.cart.CartDao
+import com.swancodes.icart.data.product.Product
+import com.swancodes.icart.data.product.ProductDao
 import com.swancodes.icart.utilities.DATABASE_NAME
 import com.swancodes.icart.worker.ProductDatabaseWorker
 
-@Database(entities = [Product::class], version = 1, exportSchema = true)
+@Database(entities = [Product::class, Cart::class], version = 1, exportSchema = true)
 abstract class ProductDatabase : RoomDatabase() {
 
     abstract fun productDao(): ProductDao
+    abstract fun cartDao(): CartDao
 
     companion object {
 

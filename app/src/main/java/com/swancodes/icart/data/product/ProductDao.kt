@@ -1,10 +1,11 @@
-package com.swancodes.icart.data
+package com.swancodes.icart.data.product
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import com.swancodes.icart.data.product.Product
 import kotlinx.coroutines.flow.Flow
 import java.util.*
 

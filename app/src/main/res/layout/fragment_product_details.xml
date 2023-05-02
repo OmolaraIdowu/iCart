@@ -246,7 +246,7 @@
                 app:srcCompat="@drawable/ic_favorite" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/productCheckoutButton"
+                android:id="@+id/productAddToCartButton"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="8dp"
@@ -256,7 +256,7 @@
                 android:fontFamily="@font/poppins"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="@string/check_out"
+                android:text="@string/add_to_cart"
                 android:textAllCaps="false"
                 app:cornerRadius="8dp" />
 

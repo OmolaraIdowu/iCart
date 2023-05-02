@@ -5,8 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.swancodes.icart.R
-import com.swancodes.icart.data.Product
+import com.swancodes.icart.data.cart.Cart
+import com.swancodes.icart.data.product.Product
 import com.swancodes.icart.databinding.HomeItemBinding
 import com.swancodes.icart.utilities.loadImage
 import java.text.NumberFormat
@@ -33,12 +35,16 @@ class HomeAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(productItem: Product) = with(binding) {
             homeItemTitle.text = productItem.name
-            val formatNum = NumberFormat.getNumberInstance(Locale.getDefault()).format(productItem.price)
+            val formatNum =
+                NumberFormat.getNumberInstance(Locale.getDefault()).format(productItem.price)
             homeItemPrice.text = binding.root.context.getString(R.string.currency, formatNum)
             homeItemImageView.loadImage(productItem.imageUrl)
             homeShopButton.setOnClickListener {
-                // This should add item to cart
+                val cart = Cart(productItem, 1)
+                listener.onAddToCart(cart)
+                Snackbar.make(binding.root, "Item added to cart", Snackbar.LENGTH_SHORT).show()
             }
+
             root.setOnClickListener {
                 listener.onItemClick(productItem.productId)
             }

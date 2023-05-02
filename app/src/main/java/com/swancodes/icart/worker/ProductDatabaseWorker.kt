@@ -7,7 +7,7 @@ import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
-import com.swancodes.icart.data.Product
+import com.swancodes.icart.data.product.Product
 import com.swancodes.icart.data.ProductDatabase
 import com.swancodes.icart.utilities.PRODUCT_DATA_FILENAME
 import kotlinx.coroutines.coroutineScope
